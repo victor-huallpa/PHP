@@ -88,7 +88,7 @@ echo count($tutotres,COUNT_RECURSIVE),'<br />';// cuenta el  numero de elementos
 
 
 /*
-Nota: los array tambien se peuden definir dentro de una cosntante, y toma sus caracteristicas como la de no poder actualizar o agregar elemetnos 
+Nota: los array tambien se pueden definir dentro de una cosntante, y toma sus caracteristicas como la de no poder actualizar o agregar elemetnos 
 */
 const libros = ['matematica', 'comunicacion', 'ingles', 'historia'];
 

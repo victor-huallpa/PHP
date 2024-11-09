@@ -12,4 +12,10 @@ o especificar diversos problemas */
 
 #conclusion: los comentarios ayudan a que el desarrollador pueda documentar su codigo para despues guiarce,
 /* ya sea poniendo donde esta ubicado los bugs, fechas de modificacion, descrir apis, entre otros datos de codigo. */
-//cerradura de la etiqueta php?> 
+//cerradura de la etiqueta php
+
+/*
+NOTA: estaremos usando 'echo' para imprimir por consola y mostrar en pantalla, tambien estaremos usando la etiqueta '<br/>'
+para los saltos de linea en la web.
+*/
+?> 
