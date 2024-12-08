@@ -30,7 +30,7 @@ echo $nombreVariable,'<br />';
 echo $nombre_variable,'<br />';
 
 #Nota: existes nombres de varaibles predefinidas que tienen una funcion al invocarlas y nos dara error al imprimirlas, son bombre definidos.
-# teneen cuenta que cada que imprimas o escribas codigo y termine un linea es recomendable colocalr punto y como ';' para finalizar la escritura
+# teneen cuenta que cada que imprimas o escribas codigo y termine una linea es recomendable colocar punto y como ';' para finalizar la escritura
 # los valores de las variables pueden cambair su valor definido. ejemplo.
 $eje = 'hola';
 echo $eje,'<br />';

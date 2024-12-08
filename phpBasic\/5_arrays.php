@@ -9,13 +9,13 @@ otros lenguajes de programacion.
 //datos de un  array:
 #Su nombre empieza con el signo de dolar '$'
 #Es key sensitib, sensible a mayusculas y minusculas.
-#se puede usar calmel case o sneke case para nombrarlas.
+#se puede usar camel case o sneke case para nombrarlas.
 #Se le asigna valores despues de colocar el singo igual '='.
 #Los elementos de un array se separan por comas ','
 #El contenido de un array esta delimitado por parentesis '()' o corchetes '[]'.
 #Si Abres o inicias un array con parentecis '()' estos deben ir despues de mencionar la palabra  array
 #Se puede utilizar corchetes para signar los elementos directos de un array apartir de PHP 5.4.
-#Los elementos de un arra ys epeude nactualizar despues de que ya tengan definidos los elementos.
+#Los elementos de un array se peuden actualizar despues de que ya tengan definidos los elementos.
 
 
  /*PHP soporta tanto array escalares (inidce, numero), array asociativos (inidce por clave) 
@@ -30,14 +30,14 @@ otros lenguajes de programacion.
 $estudiantes = ['Carlos','Jaun','Pedro'];
 $utiles = array('lapices','colores','cuadernos');
 echo $utiles[2],'<br />';
-echo $estudiantes[0][5],$estudiantes[1],'<br />'; //si el array contiene solo elementos y al imprimirlo lo ahces mediante dos corchetes este dividira el elementos en pequenios indices y de mandara el resultado
+echo $estudiantes[0][5],$estudiantes[1],'<br />'; //si el array contiene solo elementos y al imprimirlo lo haces mediante dos corchetes este dividira el elementos en pequenios indices y de mandara el resultado
 $estudiantes[1] = 'David'; //acutalizacion del inidice 0, de Carlos a David
 echo $estudiantes[1],'<br />';
 echo count($estudiantes),'<br />';
 
 /*
 -Asociativos: Para acceder a los elementos del array se requiere una clave que lo vincule. utilizando sintaxis =>
-'clave' => 'valor', la clave puede ser un tipo de dato strin, entero o flotante
+'clave' => 'valor', la clave puede ser un tipo de dato string, entero o flotante
 */
 $cursos = ['curso1' => 'matematicas', 'curso2' => 'comunicacion', 'curso3' => 'ciencia tecnologia'];
 echo $cursos['curso1'],'<br />';
@@ -49,7 +49,7 @@ echo count($cursos),'<br />';
 -MUltidimensionales: Es el almacenamiento de un array dentro de otro, no tenido fin de de alamcenara arras dentro de
                      otros. para acceder a sus elementos se tiene que poner tantos corchetes se requieran de acorde
                      a la dimension del array. 1 array [][], dos arrays [][][]... haci sucesivamente. dentro de los
-                     corchetes se teine que especificar al arra yque acedes y el inidice del elemento.
+                     corchetes se teine que especificar al array que accedes y el inidice del elemento.
 */
 $tutotres = [
     'matematicas' => [

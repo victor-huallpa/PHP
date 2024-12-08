@@ -1,6 +1,6 @@
 <?php
 /*
-El signo de asignar es el igual '=', a este signo s ele puede anteponer algunos operadores matematicos y el de concatenaicon.
+El signo de asignar es el igual '=', a este signo se le puede anteponer algunos operadores matematicos y el de concatenaicon.
 Esto ayuda a realizar las operaciones de manera mas corata
 -=
 +=

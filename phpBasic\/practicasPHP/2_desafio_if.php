@@ -13,3 +13,4 @@ if($consumo >= 100){
     $consumo = $consumo - $consumo*$descuento;
 }
 echo "Pagara $ {$consumo}";
+

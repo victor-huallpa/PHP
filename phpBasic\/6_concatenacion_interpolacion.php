@@ -10,7 +10,7 @@ $edad = 34;
 
 $nacionalidad = 'Peruana';
 /*
-La concatenacion se da mendiante el signo de PUNO '.' valor1.valor2
+La concatenacion se da mendiante el signo de PUTO '.' valor1.valor2
 */
 echo $nombre.$edad.$nacionalidad,'<br />';
 
