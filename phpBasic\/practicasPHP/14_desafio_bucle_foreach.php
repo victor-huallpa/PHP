@@ -24,7 +24,7 @@ foreach($productos as $clave => $produc){
     // echo "Codigo ".$produc['codigo']." - preducto ".$produc['descripcion']."<br>";//mediante concatenacion
 }
 
-#ciclo foreach con clave iterando el primer array del array
+#ciclo foreach con clave iterando el primer array del arraykk
 foreach($productos[1] as $clave => $produc){
     echo "$clave: {$produc}<br>";
 }
