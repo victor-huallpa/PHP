@@ -34,12 +34,12 @@ echo '<br>';
 
 /*
 NOTA: todas estas forams de encriptado que tiene hash no son cambiantes con el teimpo y es por ello que 
-se pueden llegar avulnerar, y en caso de contrasenias no se recomeinda este tiepo de encriptado
+se pueden llegar a vulnerar, y en caso de contrasenias no se recomeinda este tiepo de encriptado
 */
 
 #funcion PASWORD_HASH
 
-$clave_encrip = password_hash($clave1,PASSWORD_DEFAULT); // se manda dos parametros el primero el el valor a encripta y el segundo el algoritmo de encirptamiento que son dos
+$clave_encrip = password_hash($clave1,PASSWORD_DEFAULT); // se manda dos parametros el primero es el valor a encripta y el segundo el algoritmo de encirptamiento que son dos
 echo '<br>';
 echo password_hash($clave1,PASSWORD_BCRYPT); // este contiene otros parametros que se le pueden a;adir con el cost
 echo '<br>';
