@@ -1,26 +1,15 @@
 <?php
-
-#iniciamos la session
-session_name('validar_login');
-session_start();
+#incluimos el archivo del header de la pagina
+include_once 'layout/header.php';
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagania Principal</title>
-</head>
-<body>
     <h1>welcome World</h1>
-    <a href="login.php">Logearce</a>
+    <a href="cerrar_sesion.php"><?php echo empty($_SESSION['nombreU'])? 'Lograce': 'Cerrar sesion'; ?></a>
     <br>
     <h3><?php echo $_SESSION['nombreU']; ?></h3>
 
-    <ul>
-        <li><a href="pagina_2.php">nosotros</a></li>
-        <li><a href="pagina_3.php">contactenos</a></li>
-    </ul>
-</body>
-</html>
+<?php
+#incluimos el archivo del footer de la pagina
+include_once 'layout/footer.php';
+
+?>
