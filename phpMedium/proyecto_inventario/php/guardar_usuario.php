@@ -104,7 +104,15 @@ if ($pass1 != $pass2) {
 $guardar_usuario = conexion();
 $stmt = $guardar_usuario->prepare("INSERT INTO Usuario(usuario_nombre, usuario_apellido, usuario_usuario, usuario_clave, usuario_email) VALUES (?, ?, ?, ?, ?)");
 if ($stmt->execute([$nombre, $apellido, $usuario, $pass1, $correo])) {
-    echo "Usuario registrado correctamente.";
+    echo '
+        <div class="notification is-info is-light">
+            <strong>¡Ocurrio un error inesperado!</strong><br>
+            El usuario se guardo exitosamente.
+        </div>';
 } else {
-    echo "Error al registrar el usuario.";
-}
+    echo '
+        <div class="notification is-danger is-light">
+            <strong>¡Ocurrio un error inesperado!</strong><br>
+            No se pudo guardar el usuario.
+        </div>';
+        }
