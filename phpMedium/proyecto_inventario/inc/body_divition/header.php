@@ -35,9 +35,9 @@
                         <a class="navbar-link">Categorias</a>
 
                         <div class="navbar-dropdown">
-                            <a class="navbar-item">Nuevos</a>
-                            <a class="navbar-item">Lista</a>
-                            <a class="navbar-item">Buscar</a>
+                            <a href="index.php?vista=category_new" class="navbar-item">Nuevos</a>
+                            <a href="index.php?vista=category_list" class="navbar-item">Lista</a>
+                            <a href="index.php?vista=category_search" class="navbar-item">Buscar</a>
                         </div>
 
                     </div>
@@ -58,7 +58,7 @@
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
-                            <a class="button is-primary is-rounded">
+                            <a href="index.php?vista=user_update&user_id_up=<?php echo $_SESSION['id']; ?>" class="button is-primary is-rounded">
                                 Mi Cuenta
                             </a>
                             <a href="index.php?vista=logout" class="button is-light is-rounded">
