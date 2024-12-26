@@ -43,9 +43,6 @@
                 </form>
             </div>
         </div>
-
-
-        
         <?php 
             # Eliminar usuario #
             if(isset($_GET['user_id_del'])){
