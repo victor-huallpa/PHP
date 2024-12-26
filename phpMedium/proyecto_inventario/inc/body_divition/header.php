@@ -46,10 +46,10 @@
                         <a class="navbar-link">Productos</a>
 
                         <div class="navbar-dropdown">
-                            <a class="navbar-item">Nuevos</a>
-                            <a class="navbar-item">Lista</a>
-                            <a class="navbar-item">Categoria</a>
-                            <a class="navbar-item">Buscar</a>
+                            <a href="index.php?vista=product_new" class="navbar-item">Nuevos</a>
+                            <a href="index.php?vista=product_list" class="navbar-item">Lista</a>
+                            <a href="index.php?vista=product_category" class="navbar-item">Categoria</a>
+                            <a href="index.php?vista=product_search" class="navbar-item">Buscar</a>
                         </div>
 
                     </div>
