@@ -33,7 +33,7 @@ if($ubicacion != ""){
     } 
 }
 
-# Verificando usuario
+# Verificando nombre de la categoria
 $check_nombre = conexion();
 $check_nombre = $check_nombre->prepare("SELECT categoria_nombre FROM Categoria WHERE categoria_nombre = ?");
 $check_nombre->execute([$nombre]);
