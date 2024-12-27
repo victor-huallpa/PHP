@@ -57,23 +57,28 @@ El curso está dividido en tres módulos principales: Básico, Intermedio, y Ava
 
 ## Módulo 2: Intermedio
 
-**Objetivo:** Comprender y trabajar con funciones avanzadas y base de datos mysql.
+**Objetivo:** Comprender el manejo de excepciones y trabajar con funciones predefinidas y trabajar con base de datos mysql.
 
 ### Contenido:
 
 1. **Introducción a MYSQL**
    - Como funciona una base de datos mysql.
    - Conceptos básicos de alamacenaiento de datos.
+   - Conceptos básicos de consultas MYSQL en base de datos.
 
-2. **Manejo de Bases de Datos:**
+2. **excepciones en PHP:**
+   - como usar try, catch y finally.
+
+3. **Manejo de Bases de Datos:**
    - Introducción a MySQL y su integración con PHP.
+   - Realizar conexion de base de datos desde PHP.
    - Realizar consultas de seleccion desde PHP.
    - Realizar consultas de insercion desde PHP.
    - Realizar consultas de eliminacion desde PHP.
    - Realizar consultas de actualizacion desde PHP.
    - Realizar consultas para juntar tablas de mysql desde PHP.
-   
-3. **Seguridad en PHP:**
+
+4. **Seguridad en PHP:**
    - Validación de entradas de usuario y sanitización de datos.
    - Prevención de ataques comunes (SQL Injection, XSS).
 
