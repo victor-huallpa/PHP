@@ -25,40 +25,57 @@ El curso está dividido en tres módulos principales: Básico, Intermedio, y Ava
    - Operadores aritméticos, lógicos y de comparación.
    - Concatenación de cadenas y comentarios en PHP.
 
-3. **Control de Flujo:**
+3. **Arreglos**
+   - Tipos de arreglos (asociativos, multidimensionales).
+
+
+4. **Control de Flujo:**
    - Estructuras condicionales (`if`, `else`, `switch`).
    - Bucles (`for`, `while`, `foreach`).
 
-4. **Funciones Básicas:**
+5. **Funciones Básicas:**
    - Declaración y uso de funciones.
    - Parámetros y valores de retorno.
+   - Uso de funciones predefinidas.
+
+6. **Inclucion de archivos externos php en uno solo:**
+   - Uso de include y requiere.
+   - Uso de ONCE en include y requiere.
+
+7. **Manejo de Formularios y Superglobales:**
+   - Enviar y recibir datos de formularios.
+   - Uso de superglobales (`$_GET`, `$_POST`, `$_SESSION`).
+
+8. **Sesiones y Cookies:**
+   - Crear y gestionar sesiones en PHP.
+   - Uso y almacenamiento de cookies.
 
 ### Práctica:
-   - Crear un programa en PHP que calcule el área de diferentes figuras geométricas.
-   - Ejercicio de manejo de variables y control de flujo en un formulario simple.
+   - Crear un sito web con los conocimientos basicos adquiritos en php basico.
 
 ---
 
 ## Módulo 2: Intermedio
 
-**Objetivo:** Comprender y trabajar con funciones avanzadas, arreglos y manipulación de datos en PHP.
+**Objetivo:** Comprender y trabajar con funciones avanzadas y base de datos mysql.
 
 ### Contenido:
-1. **Arreglos y Funciones Avanzadas:**
-   - Tipos de arreglos (asociativos, multidimensionales).
-   - Manipulación de arreglos y funciones como `array_push`, `array_pop`, `in_array`.
 
-2. **Manejo de Formularios y Superglobales:**
-   - Enviar y recibir datos de formularios.
-   - Uso de superglobales (`$_GET`, `$_POST`, `$_SESSION`).
+1. **Introducción a MYSQL**
+   - Como funciona una base de datos mysql.
+   - Conceptos básicos de alamacenaiento de datos.
 
-3. **Sesiones y Cookies:**
-   - Crear y gestionar sesiones en PHP.
-   - Uso y almacenamiento de cookies.
-
-4. **Introducción a la Programación Orientada a Objetos (POO):**
-   - Clases, objetos, propiedades y métodos.
-   - Conceptos básicos de herencia y encapsulamiento.
+2. **Manejo de Bases de Datos:**
+   - Introducción a MySQL y su integración con PHP.
+   - Realizar consultas de seleccion desde PHP.
+   - Realizar consultas de insercion desde PHP.
+   - Realizar consultas de eliminacion desde PHP.
+   - Realizar consultas de actualizacion desde PHP.
+   - Realizar consultas para juntar desde PHP.
+   
+3. **Seguridad en PHP:**
+   - Validación de entradas de usuario y sanitización de datos.
+   - Prevención de ataques comunes (SQL Injection, XSS).
 
 ### Práctica:
    - Desarrollar una pequeña aplicación de inicio de sesión utilizando sesiones.
@@ -71,17 +88,13 @@ El curso está dividido en tres módulos principales: Básico, Intermedio, y Ava
 **Objetivo:** Aprender conceptos avanzados de PHP para aplicaciones profesionales y optimizadas.
 
 ### Contenido:
-1. **Manejo de Bases de Datos:**
-   - Introducción a MySQL y su integración con PHP.
-   - Realizar consultas (`SELECT`, `INSERT`, `UPDATE`, `DELETE`) desde PHP.
+
 
 2. **POO Avanzada y Patrones de Diseño:**
    - Abstracción, interfaces y polimorfismo.
    - Implementación del patrón de diseño MVC (Modelo-Vista-Controlador).
 
-3. **Seguridad en PHP:**
-   - Validación de entradas de usuario y sanitización de datos.
-   - Prevención de ataques comunes (SQL Injection, XSS).
+
 
 4. **Despliegue de Aplicaciones en un Servidor:**
    - Preparación de una aplicación para producción.
