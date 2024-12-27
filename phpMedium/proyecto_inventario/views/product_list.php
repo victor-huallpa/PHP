@@ -13,9 +13,9 @@
         error_reporting(E_ALL);
         require_once "./php/main.php";
 
-        # Eliminar usuario #
-        if(isset($_GET['category_id_del'])){
-            require_once "./php/categoria_eliminar.php";
+        # Eliminar producto #
+        if(isset($_GET['product_id_del'])){
+            require_once "./php/producto_eliminar.php";
         }
 
         if(!isset($_GET['page'])){
@@ -28,6 +28,7 @@
         }
 
         $categoria_id = (isset($_GET['category_id']))?$_GET['category_id']:0;
+        
         $pagina=limpiar_cadena($pagina);
         $url="index.php?vista=product_list&page=";
         $registros=15;
