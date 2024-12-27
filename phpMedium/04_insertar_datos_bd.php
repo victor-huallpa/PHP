@@ -7,7 +7,7 @@ Para insertar datos em la base de datos se usa la consulta INSERT INTO
 $conexion = new PDO('mysql:host=localhost;dbname=prueba', 'vi', 'vech');
 
 #realizamos la consulta a la base de datos
-$consulta = $conexion->query("INSERT INTO tabla_prueba(columna1,COlumna2) VALUES('valor10','valor11')");
+$consulta = $conexion->query("INSERT INTO tabla_prueba(columna1,COlumna2) VALUES('valor1','valor2')");
 
 #almacenamos los datos en otra variables
 $datos = $consulta;
