@@ -71,15 +71,14 @@ El curso está dividido en tres módulos principales: Básico, Intermedio, y Ava
    - Realizar consultas de insercion desde PHP.
    - Realizar consultas de eliminacion desde PHP.
    - Realizar consultas de actualizacion desde PHP.
-   - Realizar consultas para juntar desde PHP.
+   - Realizar consultas para juntar tablas de mysql desde PHP.
    
 3. **Seguridad en PHP:**
    - Validación de entradas de usuario y sanitización de datos.
    - Prevención de ataques comunes (SQL Injection, XSS).
 
 ### Práctica:
-   - Desarrollar una pequeña aplicación de inicio de sesión utilizando sesiones.
-   - Ejercicios prácticos con clases y objetos.
+   - Desarrollar una pequeña aplicación de inventario con base de datso mysq realizando crud.
 
 ---
 
