@@ -78,10 +78,6 @@ El curso está dividido en tres módulos principales: Básico, Intermedio, y Ava
    - Realizar consultas de actualizacion desde PHP.
    - Realizar consultas para juntar tablas de mysql desde PHP.
 
-4. **Seguridad en PHP:**
-   - Validación de entradas de usuario y sanitización de datos.
-   - Prevención de ataques comunes (SQL Injection, XSS).
-
 ### Práctica:
    - Desarrollar una pequeña aplicación de inventario con base de datso mysq realizando crud.
 
@@ -94,19 +90,10 @@ El curso está dividido en tres módulos principales: Básico, Intermedio, y Ava
 ### Contenido:
 
 
-2. **POO Avanzada y Patrones de Diseño:**
+2. **POO y Patrones de Diseño:**
    - Abstracción, interfaces y polimorfismo.
    - Implementación del patrón de diseño MVC (Modelo-Vista-Controlador).
 
-
-
-4. **Despliegue de Aplicaciones en un Servidor:**
-   - Preparación de una aplicación para producción.
-   - Configuración en servidores remotos.
-
-### Práctica:
-   - Crear una aplicación CRUD (Create, Read, Update, Delete) utilizando PHP y MySQL.
-   - Implementar una arquitectura básica de MVC en una aplicación.
 
 ---
 
