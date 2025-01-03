@@ -26,7 +26,7 @@ class Clase2{
         return $this->nombre.' tiene un nivel de pelea de '.$this->nivel_pelea;
     }
 
-    }
+}
 
     #instancia de objeto de la clse
     $goku = new Clase2(nivel_pelea:150,nombre:"GOKU");//le asignamos el orden de los parametros

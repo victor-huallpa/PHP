@@ -51,7 +51,7 @@ class ClasePadre{
 }
 
 #clase hija
-class ClaseHija extends ClasePadre {
+class ClaseHijas extends ClasePadre {
     #atributos
     public string $clase = 'Super Saiyajin';
 
@@ -67,7 +67,7 @@ class ClaseHija extends ClasePadre {
 }
 
 #instancia de objeto de la clse hija
-$gohan = new ClaseHija("GOHAN",1550);//llamamos a la clase hija
+$gohan = new ClaseHijas('Gohan',1500);//llamamos a la clase hija
 
 #acceder a los metodos/funciones desde la instancia de la clase hija
 echo $gohan->Transformacion().'<br>';

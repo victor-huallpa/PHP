@@ -3,6 +3,7 @@
 El polimorfismo es una caracteristica de la programacion orientada a objetos
 que permite a dos clase padre e hija tener metodos con el mismo nombre pero con diferente funcionamiento
 
+Herencia simple.
 */
 
 #llamamos a al docuemnto que tiene la clase padre
