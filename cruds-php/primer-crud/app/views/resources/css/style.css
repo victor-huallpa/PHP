@@ -1,0 +1,41 @@
+body, html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+/* estilos login */
+main{
+    flex: 1; /* Permite que el main ocupe el espacio restante */
+}
+.main-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container > .login, 
+.main-container > .hero-body{
+    height: auto;
+    width: 100%;
+    max-width: 400px;
+    min-width: 300px;
+} 
+/* piede de pagina */
+footer {
+    display: flex; /* Cambia 'flexbox' a 'flex' */
+    /* flex-direction: row; */
+    height: 5%; 
+    margin-top: 25px;
+    padding: 5px 24px;
+    background-color: #1f1e1ec5; 
+    justify-content: center; /* Centra el contenido del footer */
+    align-items: center; /* Centra verticalmente el contenido del footer */
+}
+

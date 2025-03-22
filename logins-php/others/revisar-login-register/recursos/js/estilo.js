@@ -1,0 +1,1 @@
+window.alert('estas en un sitio seguro')

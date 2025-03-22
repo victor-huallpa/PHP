@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" 
+    crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" 
+    integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" 
+    crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- nav -->
+
+    <!-- main -->
+    <div class="container mt-5">
+        <!-- Content here -->
+        <div class="card">
+            <div class="card-body">
+                <!-- alert -->
+                <div class="alert d-none" role="alert" id="alert">
+                    A simple danger alert—check it out!
+                </div>
+                <!-- add form -->
+                <form id="addPersonal">
+                    <div class="input-group">
+                        <span class="input-group-text">Nuevo Peronal</span>
+                        <input type="text" class="form-control" name="name" placeholder="Nombre">
+                        <input type="text" class="form-control" name="lastname" placeholder="Apellido">
+                        <select class="form-select" name="cargo">
+                            <option selected>Cargos</option>
+                            <option value="gerente">Gerente</option>
+                            <option value="administrador">Administrador</option>
+                            <option value="recepcionista">Recepcionista</option>
+                        </select>
+                        <input type="dni" class="form-control" name="dni" placeholder="DNI">
+                        <input type="email" class="form-control" name="email" placeholder="Correo">
+                        <input type="number" class="form-control" name="phone" placeholder="Celular">
+                        <button type="submit" class="btn btn-primary">Agregar</button>
+                    </div>
+                </form>
+                <!-- personal table -->
+                <table class="table table-hover" id="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Cargo</th>
+                            <th scope="col">DNI</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col" colspan="2">Celular</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- content generate with javascrit -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="editModalLabel">Editar Personal</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert d-none" role="alert" id="modal-alert">
+                            A simple danger alert—check it out!
+                        </div>
+                        <form id="editPersonal">
+                            <input type="hidden" name="updatePersonal" id="idPersonal">
+                            <div class="mb-3 row">
+                                <label for="rname" class="col-md-4 col-form-label text-md-end">Nombre:</label>
+                                <div class="col-md-6">
+                                    <input id="rname" type="text" class="form-control" name="name" autofocus>
+                                </div>
+                            </div>
+            
+                            <div class="mb-3 row">
+                                <label for="rlastname" class="col-md-4 col-form-label text-md-end">Apellidos:</label>
+                                <div class="col-md-6">
+                                    <input id="rlastname" type="text" class="form-control" name="lastname" autofocus>
+                                </div>
+                            </div>
+            
+                            <div class="mb-3 row">
+                              <label for="rcargo" class="col-md-4 col-form-label text-md-end">Cargo:</label>
+                              <div class="col-md-6">
+                                <select class="form-select" name="cargo" id="rcargo">
+                                    <option selected>Cargos</option>
+                                    <option value="gerente">Gerente</option>
+                                    <option value="administrador">Administrador</option>
+                                    <option value="recepcionista">Recepcionista</option>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label for="rdni" class="col-md-4 col-form-label text-md-end">DNI:</label>
+                                <div class="col-md-6">
+                                    <input id="rdni" type="number" class="form-control" name="dni" autofocus>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label for="remail" class="col-md-4 col-form-label text-md-end">Correo:</label>
+                                <div class="col-md-6">
+                                    <input id="remail" type="email" class="form-control" name="email" autofocus>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label for="rphone" class="col-md-4 col-form-label text-md-end">Phone:</label>
+                                <div class="col-md-6">
+                                    <input id="rphone" type="number" class="form-control" name="phone" autofocus>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                        </form>
+                    </div>
+                    <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script defer>
+        //Alert
+        class Alert {
+            constructor (idAlert) {
+                this.alert = document.getElementById(idAlert);
+                this.alertType = null;
+            }
+            setAlertType (type) {
+                this.alertType = type;
+            }
+            show (message) {
+                this.alert.classList.remove('d-none');
+                this.alert.classList.add(this.alertType);
+                this.alert.innerText = message;
+            }
+            hide () {
+                const type = this.alertType;
+                if (type != null) {
+                    this.alert.classList.remove(this.alertType);
+                }
+                this.alert.classList.add('d-none');
+            }
+        }
+        //Form ADD
+        class AddPersonal {
+            constructor(){
+                this.addForm = document.getElementById('addPersonal');
+                this.alert = new Alert('alert');
+            }
+            Submit(callback){
+                this.addForm.addEventListener('submit', (e) => {
+                    //Frontend Validate
+                    e.preventDefault();
+                    const data = new FormData(this.addForm);
+                    const name = data.get('name');
+                    const lastname = data.get('lastname');
+                    const cargo = data.get('cargo');
+                    const dni = data.get('dni');
+                    const email = data.get('email');
+                    const phone = data.get('phone');
+                    if (!name || !lastname || !cargo || !dni || !email || !phone){
+                        const type = 'alert-warning';
+                        this.alert.setAlertType(type);
+                        this.alert.show('Completa los inputs vacios...');
+                        setTimeout(() => { 
+                            this.alert.hide(); 
+                        }, 3000);
+                    } else {
+                        let values = {id: null, name, lastname, cargo, dni, email, phone};
+                        callback(data, values);
+                    }
+                })
+            }
+        }
+        //Form EDIT
+        class EditModal{
+            constructor (){
+                this.editModal = document.getElementById('editModal');
+                this.editForm = document.getElementById('editPersonal');
+                this.alert = new Alert('modal-alert');
+            }
+            Submit (callback){
+                this.editForm.addEventListener('submit', (e) => {
+                    //Frontend Validate
+                    e.preventDefault();
+                    const data = new FormData(this.editForm);
+                    const id = data.get('updatePersonal');
+                    const name = data.get('name');
+                    const lastname = data.get('lastname');
+                    const cargo = data.get('cargo');
+                    const dni = data.get('dni');
+                    const email = data.get('email');
+                    const phone = data.get('phone');
+                    //console.log(name, lastname, cargo, dni, email, phone);
+                    if (!name || !lastname || !cargo || !dni || !email || !phone){
+                        const type = 'alert-warning';
+                        this.alert.setAlertType(type);
+                        this.alert.show('Completa los inputs vacios...');
+                        setTimeout(() => { 
+                            this.alert.hide(); 
+                        }, 3000);
+                    } else {
+                        let values = {id, name, lastname, cargo, dni, email, phone};
+                        callback(data, values);
+                    }
+                })
+            }
+        }
+        //manage DOM
+        class View{
+            constructor (){
+                this.Modelo = null;
+                this.indice = 1;
+                //table
+                this.Table = document.getElementById('table');
+                //modal
+                this.id = document.getElementById('idPersonal');
+                this.name = document.getElementById('rname');
+                this.lastName = document.getElementById('rlastname');
+                this.cargo = document.getElementById('rcargo');
+                this.dni = document.getElementById('rdni');
+                this.email = document.getElementById('remail');
+                this.phone = document.getElementById('rphone');
+                //instance
+                this.Form = new AddPersonal();
+                this.Modal = new EditModal();
+                //callback
+                this.Form.Submit((data, values) => this.addPersonal(data, values));
+                this.Modal.Submit((data, values) => this.editPersonal(data, values)); 
+            }
+            setModel (model){
+                this.Modelo = model;
+            }
+            setValues (personal){
+                this.id.value = personal.id
+                this.name.value = personal.name;
+                this.lastName.value = personal.lastname;
+                this.cargo.value = personal.cargo;
+                this.dni.value = personal.dni;
+                this.email.value = personal.email;
+                this.phone.value = personal.phone;
+            }
+            //create
+            addPersonal (data, values){
+                //send data to database
+                //console.log(values)
+                this.Modelo.insertPersonal(data,  values);
+            }
+            //read
+            render(){
+                //get data from database
+                this.Modelo.showPersonal();
+            }
+            //update
+            editPersonal (data, values){
+                //send data to database
+                this.Modelo.updatePersonal(data, values);
+            }
+            //delete
+            removePersonal (id){
+                this.Modelo.deletePersonal(id);
+            }
+            createRow (personal){
+                const row = this.Table.insertRow();
+                row.setAttribute('id', personal.id);
+                row.innerHTML = `
+                <th scope="row">${this.indice}</th>
+                <td>${personal.name}</td>
+                <td>${personal.lastname}</td>
+                <td>${personal.cargo}</td>
+                <td>${personal.dni}</td>
+                <td>${personal.email}</td>
+                <td>${personal.phone}</td>
+                <td class="text-right">
+                    <!--create buttons-->
+                </td>
+                `;
+
+                const editBtn = document.createElement('button');
+                editBtn.classList.add('btn', 'btn-info', 'mb-1');
+                editBtn.setAttribute('data-bs-toggle','modal');
+                editBtn.setAttribute('data-bs-target','#editModal');
+                editBtn.innerHTML = `<i class="fa fa-pencil"></i>`;
+                editBtn.onclick = () => this.Modelo.seePersonal(personal.id);//view
+                row.children[7].appendChild(editBtn);
+
+                const removeBtn = document.createElement('button');
+                removeBtn.classList.add('btn', 'btn-danger', 'mb-1', 'ml-1');
+                removeBtn.innerHTML = `<i class="fa fa-trash"></i>`;
+                removeBtn.onclick = () => this.removePersonal(personal.id);//view
+                //console.log('Borrando Fila');
+                row.children[7].appendChild(removeBtn);
+                this.indice += 1;
+            }
+        }
+        //Base de Datos
+        class Model {
+            constructor(){
+                this.Vista = null;
+                this.alert = new Alert('alert');
+            }
+            setView (view){
+                this.Vista = view;
+            }
+            showPersonal(){
+                const url = './Backend/Personal/Personal.php';
+                fetch(url).then(resp => resp.json())
+                .catch(error => console.log(error))
+                .then((data) => {
+                    //console.log(data);
+                    if (data.estado) {
+                        const filas = data.datos;
+                        filas.forEach((fila) => {
+                            this.Vista.createRow(fila, fila.id);
+                        });
+                        const type = 'alert-success';
+                        this.alert.setAlertType(type);
+                        this.alert.show(data.sql);
+                        setTimeout(() => this.alert.hide(), 3000);
+                    } else {
+                        const type = 'alert-danger';
+                        this.alert.setAlertType(type);
+                        this.alert.show(data.sql+'   '+data.datos);
+                        setTimeout(() => this.alert.hide(), 3000);
+                    }
+                });
+            }
+            seePersonal(id){
+                const url = './Backend/Personal/Personal.php?id='+id;
+                fetch(url).then(resp => resp.json())
+                .catch(error => console.log(error))
+                .then((data) => {
+                    //console.log(data);
+                    if (data.estado) {
+                        this.Vista.setValues(data.datos);
+                        const type = 'alert-success';
+                        this.alert.setAlertType(type);
+                        this.alert.show(data.sql);
+                        setTimeout(() => this.alert.hide(), 3000);
+                    } else {
+                        const type = 'alert-danger';
+                        this.alert.setAlertType(type);
+                        this.alert.show(data.sql+'   '+data.datos);
+                        setTimeout(() => this.alert.hide(), 3000);
+                    }
+                });
+            }
+            insertPersonal (data, values){
+                const url = './Backend/Personal/Create.php';
+                fetch(url, {
+                    method: 'POST',
+                    body: data
+                }).then(resp => resp.json())
+                .catch(error => console.error(error))
+                .then((data) => {
+                    //console.log(data);
+                    if (data.estado) {
+                        values['id'] = data.respuesta;
+                        this.Vista.createRow(values, data.respuesta);
+                        const type = 'alert-success';
+                        this.alert.setAlertType(type);
+                        this.alert.show(data.sql);
+                        setTimeout(() => this.alert.hide(), 3000);
+                    } else {
+                        const type = 'alert-danger';
+                        this.alert.setAlertType(type);
+                        this.alert.show(data.sql+'   '+data.datos);
+                        setTimeout(() => this.alert.hide(), 3000);
+                    }
+                });
+            }
+            updatePersonal (data ,values){
+                const url = './Backend/Personal/Update.php';
+                fetch(url, {
+                    method: 'POST',
+                    body: data
+                }).then(resp => resp.json())
+                .catch(error => console.error(error))
+                .then((data) => {
+                    //console.log(data);
+                    if (data.estado) {
+                        const row = document.getElementById(values.id);
+                        row.children[1].innerText = values.name;
+                        row.children[2].innerText = values.lastname;
+                        row.children[3].innerText = values.cargo;
+                        row.children[4].innerText = values.dni;
+                        row.children[5].innerText = values.email;
+                        row.children[6].innerText = values.phone;
+                        const type = 'alert-success';
+                        this.alert.setAlertType(type);
+                        this.alert.show(data.sql);
+                        setTimeout(() => this.alert.hide(), 3000);
+                    } else {
+                        const type = 'alert-danger';
+                        this.alert.setAlertType(type);
+                        this.alert.show(data.sql+'   '+data.datos);
+                        setTimeout(() => this.alert.hide(), 3000);
+                    }
+                });
+            }
+            deletePersonal (id){
+                const url = './Backend/Personal/Personal.php?delete='+id;
+                fetch(url).then(resp => resp.json())
+                .catch(error => console.log(error))
+                .then((data) => {
+                    //console.log(data);
+                    if (data.estado) {
+                        document.getElementById(id).remove();
+                        const type = 'alert-success';
+                        this.alert.setAlertType(type);
+                        this.alert.show(data.sql);
+                        setTimeout(() => this.alert.hide(), 3000);
+                    } else {
+                        const type = 'alert-danger';
+                        this.alert.setAlertType(type);
+                        this.alert.show(data.sql+'   '+data.datos);
+                        setTimeout(() => this.alert.hide(), 3000);
+                    }
+                });
+            }
+        }
+        //main 
+        document.addEventListener('DOMContentLoaded', () => {
+            const model = new Model();
+            const view = new View();
+            model.setView(view);
+            view.setModel(model);
+            view.render();
+        });
+    </script>
+</body>
+</html>

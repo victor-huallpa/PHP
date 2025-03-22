@@ -1,0 +1,90 @@
+/*ESTILO DEL REGISTRO*/
+/*La parete principal*/
+body {
+    width: 100%;/*ancho al 100%*/
+    height: 100vh;/*altura al 100%*/
+    background: url(../recurses/imagen.jpg) no-repeat;/*establece una imagen de fondo y no se repite*/
+    background-size: cover;/*se ajusta y cubre todo el contenido*/
+    background-position: cover;/*se pocisiona para que cubra todo el contenido*/
+}
+/*REGISTRO*/
+h2 {
+    font-size: 2.5rem;/*tamaño de fuente*/
+    font-weight: bold;/*hace que el texto se muestre en negrita*/
+    color: #0024c2;/*color*/
+    text-align: center;/*centra el texto*/
+    margin-bottom: 20px;/*el margen es de 20px*/
+}
+/*Llenar los siguientes campos*/
+h3 {
+  color: rgb(0, 124, 240);/*color*/
+  font-size: 1.8rem;/*tamaño de fuente*/
+  font-weight: bold;/*texto en negrita*/
+  text-align: center;/*centra el texto*/
+  margin-bottom: 20px;/*su margen es de 20px*/
+}
+/*estilo de los campos de entrada*/
+input[type="text"], input[type="email"], input[type="password"] {
+
+    width: 200px;/*ancho*/
+    padding: 8px;/*espacio de relleno al rededor*/
+    border: 3px solid rgba(17, 255, 255, 0.5);/*borde de 3px de ancho
+    solido*/
+    border-radius: 9px;/*esquinas redondeadas radio de 9px*/
+    font-size: 15px;/*tamaño*/
+    color: #000000;/*color*/
+    margin-bottom: 10px;/*margen de 10px(espacio vertical)*/
+    background-color: transparent;/*los campos de entrada transparentes*/
+    backdrop-filter: blur(15px);/*efecto de desenfoque de 15px*/
+}
+/*selecciona el nombre de los tipos de contrato*/
+select[name="tipo_contrato"] {
+    background-color: transparent;/*fondo tranparente*/
+    border-radius: 9px;/*esquinas redondeadas con radio de 9px*/
+    padding: 10px 20px;/*espacio de relleno interno
+    10px de de altura y 20px a lo ancho*/
+    font-size: 16px;/*tamaño*/
+    color: #000000;/*color de letra*/
+    cursor: pointer;/*cambia el cursor del mouse cuando
+    esta dentro del boton*/
+    border-color: #0017e7;/*color de borde*/
+  }
+  /*selecciona el los nombres de los tipos de contrato*/
+  select[name="tipo_contrato"]:hover {/*determina cuando el cursor
+    este sobre el*/
+    background-color: #2600ff;/*color de fondo*/
+  }
+  /*determina cuando esta seleccionado(se activa un foco)*/
+  select[name="tipo_contrato"]:focus {
+    outline: none;/*elimina el contorno de alrededor*/
+    box-shadow: 9px 9px 9px rgba(4, 0, 255, 0.3);/*agrega
+    un foco(la sombra de lo seleccionado)*/
+  }
+  
+  
+/*modifica el registrar*/
+input[type="submit"] {
+  background-color: #0026ff;/*color de fondo*/
+  color: #000000;/*color de letra*/
+  padding: 10px 20px;/*espacio de relleno
+  10px de altura y 20 px de anchura*/
+  border: none;/*elimina el borde*/
+  border-radius: 5px;/*esquinas bordeadas de 5px*/
+  font-size: 16px;/*tamaño del texto*/
+  cursor: pointer;/*cambia el cursor del mouse cuando
+  esta dentro del boton*/
+}
+/*hover hace que se aplique otro elemento sobre el anterior(lo reemplaza)*/
+input[type="submit"]:hover {
+  background-color: #05fff2;/*establese otro color cuando
+  el cursor esta dentro del boton*/
+}
+/*Tipo de contrato:*/
+h4{
+  font-size: 20px;/*tamaño*/
+  color: #0017e7;/*color de letra*/
+}
+/*Iniciar sesion*/
+a {
+    color: #000000;/*color de letra*/
+}

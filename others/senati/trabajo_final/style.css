@@ -1,0 +1,46 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  gap: 20px;
+}
+
+.tarjeta {
+  height: 200px;
+  background-color: #1c6bcb;
+  border-radius: 5px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.tarjeta:hover {
+  transform: scale(1.1);
+}
+
+
+#calendario {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  width: 300px;
+}
+
+.dia {
+  border: 1px solid #ccc;
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.dia.seleccionado {
+  background-color: #ffcc00;
+}
+
+.oculto {
+  display: none;
+}
+.no-seleccionable {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+} 
+

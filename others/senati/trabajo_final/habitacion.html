@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <title>Catálogo de Habitaciones</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #52b4bb;
+      margin: 0;
+      padding: 0;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    
+    .container {
+      max-width: 1300px;
+      margin: 100px auto;
+      background-color: #fff;
+      padding: 50px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .room-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    
+    .room {
+      flex-basis: calc(33.33% - 10px);
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+    
+    .room:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .room img {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      margin-right: 20px;
+      border-radius: 5px;
+    }
+    
+    .room-info {
+      flex: 1;
+    }
+    
+    .room-info h2 {
+      margin: 0;
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    
+    .room-info p {
+      margin: 10px 0;
+      color: #666;
+    }
+    
+    .room-button {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .room-button:hover {
+      background-color: #45a049;
+    }
+    .ventana {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .contenido-ventana {
+    background-color: #fff;
+    width: 300px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .contenido-ventana h2 {
+    margin-top: 0;
+  }
+  
+  .contenido-ventana label,
+  .contenido-ventana input,
+  .contenido-ventana button {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .contenido-ventana input[type="submit"],
+  .contenido-ventana button {
+    width: 100%;
+  }
+
+  /* Estilos para la ventana emergente */
+  .popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+}
+  
+  
+  
+#calendario {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  width: 300px;
+}
+
+.dia {
+  border: 1px solid #ccc;
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.dia.seleccionado {
+  background-color: #ffcc00;
+}
+
+.oculto {
+  display: none;
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Catalogo de Habitaciones</h1>
+    <center>
+      <br></br>
+      <button id="abrirBtn" class="room-button">Reservar</button>
+    </center>
+    
+    <div class="room-row">
+      <div class="room">
+        <img src="img/suit.jpg" alt="Habitación 1">
+        <div class="room-info">
+          <h2>SUIT</h2>
+          <p>ofrece un sitio BONITO, CÓMODO, ESPACIOSO, GRANDE, VENTILADO, LUJOSO</p>
+          <p>Precio por noche: s/.400</p>
+
+          <div id="miVentana" class="ventana">
+            <div class="contenido-ventana">
+              <h2>Reservar</h2>
+              <form method="post" action="logic_habi">
+                <label for="nombre">Nombre cliente</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <label for="nombre">apellido del cliente:</label>
+                <input type="text" id="nombre" name="apellido" required>
+                <!-- <label for="nombre">correo</label>
+                <input type="email" id="email" name="correo" required>
+                <label for="nombre">celular</label>
+                <input type="text" id="celular" name="celular" required> -->
+
+
+                <form >
+                  <label for="lista">Tipo de habitaciones:</label>
+                  <select id="lista" name="opciones">
+                    <option value="opcion1">Habitacion SUIT</option>
+                    <option value="opcion2">Habitación Matrimonial</option>
+                    <option value="opcion3">Habitacion Matrimonial con cama extra</option>
+                    <option value="opcion4">Habitacion Simple</option>
+                    <option value="opcion4">Habitacion Comun</option>
+                    <option value="opcion4">Habitacion Paso Hot</option>
+
+                  </select>
+                  </form>
+                        
+                <label for="fecha">Fecha:</label>
+                <button onclick="openPopup()">Abrir Calendario</button>
+
+                <div id="popup" class="popup" style="display: none;">
+                  <input type="text" id="datepicker">
+                </div>
+
+                <input type="text" id="selectedDate" readonly>
+
+                <script>
+                  function openPopup() {
+                    $("#popup").show();
+                    $("#datepicker").datepicker({
+                      minDate: 0, // Restringe fechas anteriores a la fecha actual
+                      onSelect: function(dateText) {
+                        $("#selectedDate").val(dateText);
+                        closePopup();
+                      }
+                    });
+                  }
+
+                  function closePopup() {
+                    $("#popup").hide();
+                  }
+                </script>
+
+                <label for="nombre">DNI del cliente:</label>
+                <input type="text" id="DNI" name="DNI" required>
+        
+                <input type="submit" value="Enviar">
+                
+              </form>
+              <button id="cerrarBtn">Cerrar</button>
+            </div>
+          </div>
+        
+          <script src="script.js"></script>
+          
+        </div>
+      </div>
+      
+    <div class="room">
+      <img src="img/habitacion_doble.jpg" alt="Habitación 2">
+      <div class="room-info">
+        <h2>Matrimonial</h2>
+        <p>Una habitación matrimonial privado para disfrutar, en el que la tranquilidad y la intimidad sean como tu hogar.</p>
+        <p>Precio por noche: s/.300</p>
+
+        <div id="miVentana" class="ventana">
+          <div class="contenido-ventana">
+            <h2>Reservar</h2>
+            <form>
+              <label for="nombre">Nombre y apellido del cliente:</label>
+              <input type="text" id="nombre" name="nombre" required>
+
+              <label for="nombre">Tipo de habitacion:</label>
+              <textarea readonly>Habitacion SUIT</textarea>
+                      
+              <label for="fecha">Fecha:</label>
+              <button onclick="openPopup()">Abrir Calendario</button>
+
+              <div id="popup" class="popup" style="display: none;">
+                <input type="text" id="datepicker">
+              </div>
+
+              <input type="text" id="selectedDate" readonly>
+
+              <script>
+                function openPopup() {
+                  $("#popup").show();
+                  $("#datepicker").datepicker({
+                    minDate: 0, // Restringe fechas anteriores a la fecha actual
+                    onSelect: function(dateText) {
+                      $("#selectedDate").val(dateText);
+                      closePopup();
+                    }
+                  });
+                }
+
+                function closePopup() {
+                  $("#popup").hide();
+                }
+              </script>
+
+              <label for="nombre">DNI del cliente:</label>
+              <input type="text" id="DNI" name="DNI" required>
+      
+              <input type="submit" value="Enviar">
+              
+            </form>
+            <button id="cerrarBtn">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+      <div class="room">
+        <img src="img/matrimonial2.jpg" alt="Habitación 3">
+        <div class="room-info">
+          <h2>Matrimonial Cama Extra</h2>
+          <p>Ofrece lo mismo que la matrimonial solo que esta habitacion tiene una cama extra para tu familia.</p>
+          <p>Precio por noche: s/.350</p>
+
+          <div id="miVentana" class="ventana">
+            <div class="contenido-ventana">
+              <h2>Reservar</h2>
+              <form>
+                <label for="nombre">Nombre y apellido del cliente:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="nombre">Tipo de habitacion:</label>
+                <textarea readonly>Habitacion SUIT</textarea>
+                        
+                <label for="fecha">Fecha:</label>
+                <button onclick="openPopup()">Abrir Calendario</button>
+
+                <div id="popup" class="popup" style="display: none;">
+                  <input type="text" id="datepicker">
+                </div>
+
+                <input type="text" id="selectedDate" readonly>
+
+                <script>
+                  function openPopup() {
+                    $("#popup").show();
+                    $("#datepicker").datepicker({
+                      minDate: 0, // Restringe fechas anteriores a la fecha actual
+                      onSelect: function(dateText) {
+                        $("#selectedDate").val(dateText);
+                        closePopup();
+                      }
+                    });
+                  }
+
+                  function closePopup() {
+                    $("#popup").hide();
+                  }
+                </script>
+
+                <label for="nombre">DNI del cliente:</label>
+                <input type="text" id="DNI" name="DNI" required>
+        
+                <input type="submit" value="Enviar">
+                
+              </form>
+              <button id="cerrarBtn">Cerrar</button>
+            </div>
+          </div>
+        
+          <script src="script.js"></script>
+
+        </div>
+      </div>
+    </div>
+    
+    <div class="room-row">
+      <div class="room">
+        <img src="img/simpe.jpg" alt="Habitación 4">
+        <div class="room-info">
+          <h2>Simple</h2>
+          <p>Ofercemos una habitacion comoda con una cama Simple.</p>
+          <p>Precio por noche: s/.40</p>
+
+          <div id="miVentana" class="ventana">
+            <div class="contenido-ventana">
+              <h2>Reservar</h2>
+              <form>
+                <label for="nombre">Nombre y apellido del cliente:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="nombre">Tipo de habitacion:</label>
+                <textarea readonly>Habitacion SUIT</textarea>
+                        
+                <label for="fecha">Fecha:</label>
+                <button onclick="openPopup()">Abrir Calendario</button>
+
+                <div id="popup" class="popup" style="display: none;">
+                  <input type="text" id="datepicker">
+                </div>
+
+                <input type="text" id="selectedDate" readonly>
+
+                <script>
+                  function openPopup() {
+                    $("#popup").show();
+                    $("#datepicker").datepicker({
+                      minDate: 0, // Restringe fechas anteriores a la fecha actual
+                      onSelect: function(dateText) {
+                        $("#selectedDate").val(dateText);
+                        closePopup();
+                      }
+                    });
+                  }
+
+                  function closePopup() {
+                    $("#popup").hide();
+                  }
+                </script>
+
+                <label for="nombre">DNI del cliente:</label>
+                <input type="text" id="DNI" name="DNI" required>
+        
+                <input type="submit" value="Enviar">
+                
+              </form>
+              <button id="cerrarBtn">Cerrar</button>
+            </div>
+          </div>
+        
+          <script src="script.js"></script>
+
+        </div>
+      </div>
+      
+      <div class="room">
+        <img src="img/comun.jpg" alt="Habitación 5">
+        <div class="room-info">
+          <h2>Comun</h2>
+          <p>Las habitaciones comunes ofrecen habitaciones conpartidas con distintos clientes.</p>
+          <p>Precio por noche: s/.20</p>
+        </div>
+      </div>
+      
+      <div class="room">
+        <img src="img/hot.jpg" alt="Habitación 6">
+        <div class="room-info">
+          <h2>Paso HOT</h2>
+          <p>Ofrecemos habitaciones al paso para que tu intimidad sea comoda y a un buen Precio.</p>
+          <p>Precio por noche: s/.25</p>
+        </div>
+      </div>
+    </div>
+
+  <div class="back">
+    <a href="./index.php">Regresar a inicio</a>
+  </div>    
+  </div>
+</body>
+</html>
+
+
+
+</body>
+</html>

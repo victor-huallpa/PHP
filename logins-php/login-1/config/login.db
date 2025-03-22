@@ -1,0 +1,46 @@
+CREATE TABLE IF NOT EXISTS usuarios (
+  id_usuario int PRIMARY KEY AUTO_INCREMENT,
+  usuario varchar(100) NOt NULL,
+  pass varchar(100) NOt NULL
+);
+
+CREATE TABLE IF NOT EXISTS trabajadores (
+  id_trabajador int PRIMARY KEY AUTO_INCREMENT,
+  nombre varchar(100) NOt NULL,
+  apellido varchar(100) NOt NULL,
+  dni_pasaporte int NOt NULL,
+  correo varchar(100) NOt NULL,
+  celular varchar(14) NOt NULL,
+  id_usuario int NOt NULL,
+  id_privilegio int NOt NULL,
+  foto_usuario blob,
+  FOREIGN KEY (id_privilegio) REFERENCES privilegios(id_privilegio),
+  FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
+);
+
+CREATE TABLE IF NOT EXISTS privilegios (
+  id_privilegio int PRIMARY KEY AUTO_INCREMENT,
+  estado enum('activo', 'inactivo', 'suspendido'),
+  privilegio enum('admin', 'master', 'user')
+);
+
+CREATE TABLE IF NOT EXISTS log_usuarios (
+  id_log int PRIMARY KEY AUTO_INCREMENT,
+  id_creador int NOt NULL,
+  id_creado int NOt NULL,
+  fecha_creacion datetime DEFAULT CURRENT_TIMESTAMP NOt NULL,
+  nota varchar(255),
+  FOREIGN KEY (id_creador) REFERENCES trabajadores(id_trabajador),
+  FOREIGN KEY (id_creado) REFERENCES trabajadores(id_trabajador)
+);
+
+CREATE TABLE IF NOT EXISTS log_actualizacones (
+  id_actualizacion int PRIMARY KEY AUTO_INCREMENT,
+  id_actualizador int NOt NULL,
+  id_actualizado int NOt NULL,
+  fecha_actualizacion datetime DEFAULT CURRENT_TIMESTAMP NOt NULL,
+  nota varchar(255),
+  FOREIGN KEY (id_actualizador) REFERENCES trabajadores(id_trabajador),
+  FOREIGN KEY (id_actualizado) REFERENCES trabajadores(id_trabajador)
+);
+

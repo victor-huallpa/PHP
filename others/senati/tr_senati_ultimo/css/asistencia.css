@@ -1,0 +1,131 @@
+.titulo {
+    font-size: 36px;
+    font-weight: bold;
+    color: #4CAF50;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(#141e30, #062245);
+  }
+  
+  .subtitulo {
+    font-size: 24px;
+    color: #555555;
+    text-align: center;
+  }
+  
+  #reloj {
+    width: 210px;
+    height: 100px;
+    background-color: #6fa2b9;
+    border-radius: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    color: #111111;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    animation: borderAnimation 5s infinite linear;
+  }
+  
+  @keyframes borderAnimation {
+    0% {
+      border: 2px solid #20054c;
+    }
+    25% {
+      border: 2px solid #ff0000;
+    }
+    50% {
+      border: 2px solid #00ff00;
+    }
+    75% {
+      border: 2px solid #0000ff;
+    }
+    100% {
+      border: 2px solid #ecf018;
+    }
+  }
+  
+  
+  .registro-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .label-registrar {
+    font-size: 18px;
+    color: #555555;
+    margin-bottom: 10px;
+  }
+  
+  .select-container {
+    position: relative;
+    width: 200px;
+  }
+  
+  .select-registrar {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #ffffff;
+    border: 2px solid #cccccc;
+    border-radius: 4px;
+    padding: 10px 30px 10px 10px;
+    font-size: 16px;
+    color: #555555;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .select-registrar:focus {
+    outline: none;
+    border-color: #4CAF50;
+  }
+  
+  .custom-arrow {
+    position: absolute;
+    top: calc(50% - 5px);
+    right: 10px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #555555;
+    pointer-events: none;
+  }
+  
+  .enviar-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .enviar-button:hover {
+    background-color: #45a049;
+  }
+  
+  .enviar-button:focus {
+    outline: none;
+  }
+  
+  .enviar-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  

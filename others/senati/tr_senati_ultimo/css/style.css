@@ -1,0 +1,107 @@
+html {
+    height: 100%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(#141e30, #062245);
+}
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.6);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+}
+.login-box h1{
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: centers;
+}
+.login-box .user-box{
+    position: relative;
+
+}
+.login-box .user-box input{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+@keyframes modern-button-animation {
+        0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        }
+        50% {
+        transform: scale(1.05);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        }
+    }
+    
+    .modern-button {
+        position: relative;
+        top: 50%;
+        left: 30%;
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fff;
+        background: linear-gradient(to right, #22b5d6, #0d3e5c);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        animation: modern-button-animation 2s ease-in-out infinite;
+    }
+    
+    .modern-button:hover {
+        animation-play-state: paused;
+    }
+    
+    .modern-button:focus {
+        outline: none;
+    }
+    
+    .modern-button:active {
+        transform: scale(0.95);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+
+
+
+.login-box form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px;
+}
+.tex{
+    color: #fff;
+}
