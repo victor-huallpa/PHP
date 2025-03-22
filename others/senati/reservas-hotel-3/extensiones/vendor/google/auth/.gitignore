@@ -1,7 +1,7 @@
 *~
 vendor
 composer.lock
-
+tests/fixtures/
 
 # IntelliJ
 .idea
