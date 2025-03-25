@@ -3,9 +3,9 @@
 
 $conec = mysqli_connect(
   'localhost',
-  'root',
-  '',
-  'senati_alumno'
+  'vi',
+  'vech',
+  'prueba'
 ) or die(mysqli_erro($mysqli));
 
 ?>

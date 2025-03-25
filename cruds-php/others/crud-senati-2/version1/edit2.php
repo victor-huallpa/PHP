@@ -5,7 +5,7 @@ $description= '';
 
 if  (isset($_GET['id'])) {
   $id = $_GET['id'];
-  $query = "SELECT * FROM iniciologin2 WHERE id=$id";
+  $query = "SELECT * FROM users WHERE id=$id";
   $result = mysqli_query($conec, $query);
   if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_array($result);
@@ -19,15 +19,15 @@ if (isset($_POST['update'])) {
   $title= $_POST['usuario'];
   $description = $_POST['clave'];
 
-  $query = "UPDATE iniciologin2 set usuario = '$title', clave = '$description' WHERE id=$id";
+  $query = "UPDATE users set usuario = '$title', clave = '$description' WHERE id=$id";
   mysqli_query($conec, $query);
   $_SESSION['message'] = 'Task Updated Successfully';
   $_SESSION['message_type'] = 'warning';
-  header('Location: ../inicio_secion/vista/bienvenida.php');
+  header('Location: ./index.php');
 }
 
 ?>
-<?php include('includes/header.php'); ?>
+<?php include('./includes/header.php'); ?>
 <div class="container p-4">
   <div class="row">
     <div class="col-md-4 mx-auto">
@@ -47,4 +47,4 @@ if (isset($_POST['update'])) {
     </div>
   </div>
 </div>
-<?php include('includes/footer.php'); ?>
+<?php include('./includes/footer.php'); ?>

@@ -3,9 +3,9 @@
 
 $conn = mysqli_connect(
   'localhost',
-  'root',
-  '',
-  'php_mysql_crud'
+  'vi',
+  'vech',
+  'prueba'
 ) or die(mysqli_erro($mysqli));
 
 ?>

@@ -12,6 +12,6 @@ if(isset($_GET['id'])) {
 
   $_SESSION['message'] = 'Task Removed Successfully';
   $_SESSION['message_type'] = 'danger';
-  header('Location: ../inicio_secion/vista/bienvenida.php');}
+  header('Location: ./index.php');}
 
 ?>
