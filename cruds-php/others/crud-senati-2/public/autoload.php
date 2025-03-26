@@ -1,7 +1,7 @@
 <?php
     //funcion autoload
     spl_autoload_register(function($clase){
-        $archivo = __DIR__."/".$clase.".php";
+        $archivo = __DIR__."/../".$clase.".php";
         $archivo = str_replace("\\","/",$archivo);
 
         if(is_file($archivo)){

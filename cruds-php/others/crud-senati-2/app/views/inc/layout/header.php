@@ -5,6 +5,6 @@
     <div class="container">
       <a class="navbar-brand" href="index.php">PHP MySQL CRUD</a>
     </div>
-</nav>
+  </nav>
 </header>
 
