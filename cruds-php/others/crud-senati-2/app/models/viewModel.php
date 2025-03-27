@@ -4,7 +4,9 @@
     class viewModel{
         //MODELO PARA OBTENER VISTA
         public function getViewModel($view){
-            $viewListWhite = ['home', 'edit'];
+            $view = $view === 'edit-task' ? 'editTask' : $view;
+            $view = $view === 'edit-user' ? 'editUser' : $view;
+            $viewListWhite = ['home', 'editTask', 'editUser'];
             if(in_array($view, $viewListWhite)){
                 if(file_exists('./../app/views/content/'.$view.'-view.php')){
                     return [
@@ -12,6 +14,7 @@
                         'includeHeaderFooter' => true
                     ];
                 }else{
+                    // echo 'hola';
                     return [
                         'view' => './../app/views/content/404-view.php',
                         'includeHeaderFooter' => false

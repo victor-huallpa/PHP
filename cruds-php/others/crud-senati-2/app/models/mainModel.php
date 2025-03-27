@@ -27,7 +27,8 @@
                 //lanzar la ecepcion con un mensaje personalizado
                 // throw new Exception("Error al conectar a la base de datos");
                 //lanzar la ecepcion
-                throw new Exception("Error al conectar a la base de datos: " . $e->getMessage());
+                // throw new Exception("Error al conectar a la base de datos: " . $e->getMessage());
+                return false;
             }
         }
         //METODO PARA LIMPIAR CADENAS
@@ -43,7 +44,7 @@
             return !preg_match("/^" . preg_quote($expression, '/') . "$/", $string);
         }
         //METODO PARA SELECCIONAR DATOS/REGISTROS
-        public function selection(string $type, string $table, string $field = '', int|string $id):PDOStatement|false{
+        public function selection(string $type, string $table, string $field = '', int|string $id = ''):PDOStatement|false{
             //reseteamos datos
             $type = $this->clearString($type);
             $table = $this->clearString($table);

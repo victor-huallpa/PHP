@@ -1,3 +1,8 @@
+  
+  <?php
+  use app\controllers\taskController;
+  use app\controllers\userController;
+  ?>
   <center>
     <h2>TABLA REGISTRAR TAREA</h2>
     <br>
@@ -38,29 +43,10 @@
           </tr>
         </thead>
         <tbody>
-
           <?php
-            // $query = "SELECT * FROM task";
-            // $result_tasks = mysqli_query($conn, $query);    
-
-            // while($row = mysqli_fetch_assoc($result_tasks)) { 
+             $instanica = new taskController();
+             echo $instanica->getTaskRegister();
           ?>
-          <tr>
-            <td><?php echo $row['title']; ?></td>
-            <td><?php echo $row['description']; ?></td>
-            <td><?php echo $row['created_at']; ?></td>
-            <td>
-              <a href="./edit.php?id=<?php echo $row['id']?>" class="btn btn-secondary">
-                <i class="fas fa-marker"></i>
-              </a>
-              <a href="./delete_task.php?id=<?php echo $row['id']?>" class="btn btn-danger">
-                <i class="far fa-trash-alt"></i>
-              </a>
-            </td>
-          </tr>
-          <?php 
-            // }
-        ?>
         </tbody>
       </table>
     </div>
@@ -110,30 +96,9 @@
         <tbody>
 
           <?php
-        //   include('db2.php');
-          
-        //   $query = "SELECT * FROM users WHERE cargo='alumno'" ;
-        //   $result_tasks = mysqli_query($conec, $query);    
-
-        //   while($row = mysqli_fetch_assoc($result_tasks)) { 
-            ?>
-          <tr>
-            <td><?php echo $row['id']; ?></td>
-            <td><?php echo $row['usuario']; ?></td>
-            <td><?php echo $row['clave']; ?></td>
-            <td><?php echo $row['cargo']; ?></td>
-            <td>
-              <a href="./edit2.php?id=<?php echo $row['id']?>" class="btn btn-secondary" >
-                <i class="fas fa-marker"></i>
-              </a>
-              <a href="./delete_task2.php?id=<?php echo $row['id']?>" class="btn btn-danger" >
-                <i class="far fa-trash-alt"></i>
-              </a>
-            </td>
-          </tr>
-          <?php 
-        //} 
-        ?>
+            $instanica = new userController();
+            echo $instanica->getUserRegister();
+          ?>
         </tbody>
       </table>
     </div>

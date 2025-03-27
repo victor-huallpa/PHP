@@ -34,4 +34,4 @@ define('APP_URL', env('APP_URL', 'http://localhost/PHP/cruds-php/others/crud-sen
 define('APP_SESSION_NAME', env('APP_SESSION_NAME', 'CRUD'));
 
 //ZONA HORARIA
-define('APP_TIMEZONE', 'APP_TIMEZONE', 'America/Lima');
+define('APP_TIMEZONE', env('APP_TIMEZONE', 'America/Lima'));
