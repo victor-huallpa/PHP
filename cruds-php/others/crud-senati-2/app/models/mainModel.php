@@ -11,16 +11,16 @@
             $this->conection = dbModel::getInstance();
         }
         //METODO PARA EJECUTAR CONSULTAS
-        public function execution(string $query, array $params = []): PDOStatement|false{
+        public function execution(string $query, array $params = []): PDOStatement|bool{
             try{
-                $execQuery = $this->conection->getconect()->prepare($query);
+            $execQuery = $this->conection->getconect()->prepare($query);
                 if(isset($params) && count($params) > 0){
                     foreach($params as $param){
                         $execQuery->bindValue($param[0], $param[1], $param[2] ?? PDO::PARAM_STR);
-                    }
+                }
                 }
                 $execQuery->execute();
-                return $execQuery;
+                return $execQuery;  
             }catch(PDOException $e){
                 //regsitra el error en el log
                 error_log("Error al conectar a la base de datos: ". $e->getMessage());
@@ -28,6 +28,7 @@
                 // throw new Exception("Error al conectar a la base de datos");
                 //lanzar la ecepcion
                 // throw new Exception("Error al conectar a la base de datos: " . $e->getMessage());
+                echo "Error al conectar a la base de datos: " . $e->getMessage();
                 return false;
             }
         }
@@ -57,7 +58,7 @@
             }elseif($type === "one"){
                 $query = "SELECT * FROM $table WHERE $field = :ID";
                 $params = [
-                    [":ID", $id, PDO::PARAM_INT]
+                    [":ID", $id, is_string($id) ? PDO::PARAM_STR : PDO::PARAM_INT]
                 ];
                 return $this->execution($query, $params ?? []);
 
@@ -81,14 +82,14 @@
             $contador = 0;
             foreach($fields as $value){
                 if($contador > 0){$query .= ", ";}
-                $query .= ":".$value['campo_nombre'];
+                $query .= ":".$value['campo_marcador'];
                 $contador++;
             }
             $query .= ")";
             //preparamos e iteramos los parametros en un array
             foreach ($fields as $field) {
                 $params[] = [
-                    ":" . $field['campo_nombre'],
+                    ":" . $field['campo_marcador'],
                     $field['campo_valor'],
                     is_string($field['campo_valor']) ? PDO::PARAM_STR : PDO::PARAM_INT
                 ];
@@ -106,17 +107,18 @@
             $contador = 0;
             foreach($fields as $field){
                 if($contador > 0 ){$query .= ", ";}
-                $query .= $field['campo_nombre']." = :".$field['campo_nombre'];
+                $query .= $field['campo_nombre']." = :".$field['campo_marcador'];
                 $contador++;
             }
             $query .= " WHERE {$conditions['campo_nombre']} = :VAL";
             //preparamos los parametros en un array
             $params = [
-                [":VAL", $conditions['campo_valor'], PDO::PARAM_INT]
+                [":VAL", $conditions['campo_valor'], PDO::PARAM_STR]
             ];
             foreach ($fields as $field) {
+                // echo $field['campo_valor'].'<br>';
                 $params[] = [
-                    ":" . $field['campo_nombre'],
+                    ":" . $field['campo_marcador'],
                     $field['campo_valor'],
                     is_string($field['campo_valor']) ? PDO::PARAM_STR : PDO::PARAM_INT
                 ];

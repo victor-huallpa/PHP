@@ -1,34 +1,26 @@
 <?php
 	
-	require_once "../../config/app.php";
-	require_once "../views/inc/session_start.php";
-	require_once "../../autoload.php";
+	require_once "../../config/env.php";
+	// require_once "../views/inc/session_start.php";
+	require_once "../../public/autoload.php";
 	
-	use app\controllers\userController;
+	use app\controllers\taskController;
 
-	if(isset($_POST['modulo_usuario'])){
+	if(isset($_POST['modulo-task'])){
 
-		$insUsuario = new userController();
+		$insUsuario = new TaskController();
 
-		// if($_POST['modulo_usuario']=="registrar"){
-		// 	echo $insUsuario->registrarUsuarioControlador();
-		// }
+		if($_POST['modulo-task']=="create-task"){
+			echo $insUsuario->saveTask();
+		}
 
-		// if($_POST['modulo_usuario']=="eliminar"){
-		// 	echo $insUsuario->eliminarUsuarioControlador();
-		// }
+		if($_POST['modulo-task']=="delete-task"){
+			echo $insUsuario->deleteTaks();
+		}
 
-		// if($_POST['modulo_usuario']=="actualizar"){
-		// 	echo $insUsuario->actualizarUsuarioControlador();
-		// }
-
-		// if($_POST['modulo_usuario']=="eliminarFoto"){
-		// 	echo $insUsuario->eliminarFotoUsuarioControlador();
-		// }
-
-		// if($_POST['modulo_usuario']=="actualizarFoto"){
-		// 	echo $insUsuario->actualizarFotoUsuarioControlador();
-		// }
+		if($_POST['modulo-task']==="update-task"){
+			echo $insUsuario->updateTask();
+		}
 		
 	}else{
 		session_destroy();

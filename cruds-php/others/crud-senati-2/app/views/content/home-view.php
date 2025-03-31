@@ -21,15 +21,18 @@
       <?php session_unset(); } ?>
       <!-- ADD TASK FORM -->
       <div class="card card-body">
-        <form action="./save_task.php" method="POST">
+
+        <form action="../app/ajax/taskAjax.php" method="POST" class="formAjax">
+          <input type="hidden" name="modulo-task" value="create-task">
           <div class="form-group">
-            <input type="text" name="title" class="form-control" placeholder="Task Title" autofocus>
+            <input type="text" name="title" class="form-control" placeholder="Task Title" autofocus pattern="[a-zA-Zá-é-í-ó-úÁ-É-ÍÓ-Ú-ñÑ0-9]+" required>
           </div>
           <div class="form-group">
-            <textarea name="description" rows="2" class="form-control" placeholder="Task Description"></textarea>
+            <textarea name="description" rows="2" class="form-control" placeholder="Task Description" required></textarea>
           </div>
           <input type="submit" name="save_task" class="btn btn-success btn-block" value="Save Task">
         </form>
+
       </div>
     </div>
     <div class="col-md-8">
@@ -71,15 +74,18 @@
 
       <!-- ADD TASK FORM -->
       <div class="card card-body">
-        <form action="./save_task.php" method="POST">
+
+        <form action="../app/ajax/userAjax.php" method="POST">
+          <input type="hidden" name="modulo-user" value="create-user">
           <div class="form-group">
-            <input type="text" name="title" class="form-control" placeholder="registrar ussurio" autofocus>
+            <input type="text" name="usuario" class="form-control" placeholder="registrar ussurio" autofocus required>
           </div>
           <div class="form-group">
-            <input type="password" name="description"  class="form-control" placeholder="password "></input>
+            <input type="password" name="clave"  class="form-control" placeholder="password" required>
           </div>
           <input type="submit" name="registrar" class="btn btn-success btn-block" value="Registrar">
         </form>
+
       </div>
     </div>
     <div class="col-md-8">
