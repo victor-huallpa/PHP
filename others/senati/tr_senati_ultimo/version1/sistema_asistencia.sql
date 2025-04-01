@@ -28,12 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `asistencias` (
-  `id_asistencia` int(11) NOT NULL,
-  `id_personal` int(11) NOT NULL,
-  `hora_entrada` varchar(50) DEFAULT NULL,
-  `accion` varchar(50) DEFAULT NULL,
-  `fecha` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id_asistencia` int AUTO INCREMENT PRIMARY KEY,
+  `id_personal` int NOT NULL,
+  `hora_marcacion` DATETIME (50) NULL,
+  `accion` varchar(50) NULL,
+  FOREIGN KEY (`id_personal`) REFERENCES `personal` (`id_personal`)
+) 
 
 --
 -- Volcado de datos para la tabla `asistencias`
@@ -64,14 +64,14 @@ INSERT INTO `asistencias` (`id_asistencia`, `id_personal`, `hora_entrada`, `acci
 --
 
 CREATE TABLE `personal` (
-  `id_personal` int(11) NOT NULL,
-  `nombre` varchar(50) DEFAULT NULL,
-  `apellido` varchar(50) DEFAULT NULL,
-  `dni` int(8) DEFAULT NULL,
-  `correo` varchar(50) DEFAULT NULL,
-  `n_cel` int(11) DEFAULT NULL,
-  `tipo_de_contrato` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id_personal` int AUTO INCREMENT PRIMARY KEY,
+  `nombre` varchar(50) NOT NULL,
+  `apellido` varchar(50) NOT NULL,
+  `dni` int(8) NULL,
+  `correo` varchar(50) NOT NULL,
+  `n_cel` int(11) NULL,
+  `tipo_horario` varchar(100) NULL
+) 
 
 --
 -- Volcado de datos para la tabla `personal`
@@ -94,11 +94,12 @@ INSERT INTO `personal` (`id_personal`, `nombre`, `apellido`, `dni`, `correo`, `n
 --
 
 CREATE TABLE `registros` (
-  `id_registro` int(11) NOT NULL,
-  `id_personal` int(11) NOT NULL,
-  `usuario` varchar(50) DEFAULT NULL,
-  `contrasena` varchar(60) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id_registro` int NOT NULL,
+  `id_personal` int NOT NULL,
+  `usuario` varchar(50) NOT NULL,
+  `clave` varchar(250) NOT NULL,
+  FOREIGN KEY (`id_personal`) REFERENCES `personal` (`id_personal`)
+) 
 
 --
 -- Volcado de datos para la tabla `registros`
@@ -181,3 +182,28 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE personal (
+    id_personal BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(50) NOT NULL,
+    dni VARCHAR(8) NULL,
+    correo VARCHAR(50) NOT NULL,
+    n_cel VARCHAR(20) NULL,
+    tipo_horario ENUM('completo', 'parcial') NULL
+);
+CREATE TABLE usuarios (
+    id_registro BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id_personal BIGINT NOT NULL,
+    usuario VARCHAR(50) NOT NULL,
+    clave VARCHAR(250) NOT NULL,
+    fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_personal) REFERENCES personal(id_personal)
+);
+CREATE TABLE asistencias (
+    id_asistencia BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id_personal BIGINT NOT NULL,
+    hora_marcacion DATETIME NULL,
+    accion VARCHAR(50) NULL, 
+    FOREIGN KEY (id_personal) REFERENCES personal(id_personal)
+);
