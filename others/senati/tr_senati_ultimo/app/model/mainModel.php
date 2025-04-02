@@ -11,13 +11,16 @@
             $this->conection = dbModel::getInstance();
         }
         //METODO PARA EJECUTAR CONSULTAS
-        private function execution(string $query, array $params = []): PDOStatement|bool{
+        private function execution(string $query, array $params = [], bool $returnLastId = false): PDOStatement|bool|string{
             try{
             $execQuery = $this->conection->getconect()->prepare($query);
                 if(isset($params) && count($params) > 0){
                     foreach($params as $param){
                         $execQuery->bindValue($param[0], $param[1], $param[2] ?? PDO::PARAM_STR);
+                    }
                 }
+                if ($returnLastId && strtolower(substr(trim($query), 0, 6)) === 'insert') {
+                    return $this->conection->getconect()->lastInsertId();
                 }
                 $execQuery->execute();
                 return $execQuery;  
@@ -66,7 +69,7 @@
             return false;
         }
         //METODO PARA INSERTAR DATOS/REGISTROS
-        public function insertion(string $table, $fields): PDOStatement|bool{
+        public function insertion(string $table, $fields): PDOStatement|bool|string{
             //limpiamos datos
             $table = $this->clearString($table);
             //preparamos la consulta

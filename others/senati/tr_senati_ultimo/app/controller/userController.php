@@ -22,7 +22,12 @@
             if($validacion->rowCount() === 1){
                 $validacion = $validacion->fetch();
                 if(password_verify($clave, $validacion['clave'])){
+                    
                     $_SESSION['usuario'] = $validacion['usuario'];
+                    $_SESSION['id'] = $validacion['id_personal'];
+
+                    header('Location:'.APP_URL.'asistencia');
+
                 }else{
                     return 'Contraseña incorrecta';
                 }
@@ -38,9 +43,56 @@
         }
         //METODO REGSISTRAR USUARIO
         public function registerUser(){
-            $datos = $_POST;
-            $datos['clave'] = password_hash($datos['clave'], PASSWORD_DEFAULT);
-            $this->insertion('usuarios', $datos);
-            header('Location:'.APP_URL.'login');
+            $tabla = 'personal';
+            $nombre = $_POST['nombre'];
+            $apellido = $_POST['apellido'];
+            $dni = $_POST['dni'];
+            $correo = $_POST['correo'];
+            $celular = $_POST['cel'];
+            if ($_POST['tiempo'] === 'tiempo completo') {
+                $tiempo = 'completo';
+            } elseif ($_POST['tiempo'] === 'tiempo parcial') {
+                $tiempo = 'parcial';
+            } else {
+                // Manejar el caso de un valor inesperado
+                $tiempo = $_POST['tiempo']; // o el valor predeterminado que quieras usar
+            }
+
+
+            $clave1 = $_POST['clave'];
+            $clave2 = $_POST['clave2'];
+
+            if(empty($nombre) || empty($apellido) || empty($correo) || empty($tiempo) || empty($clave1) || empty($clave2)){
+                return 'Todos los campos son obligatorios';
+            }
+
+            if( $clave1 !== $clave2){
+                return 'las contrasenias no coinsiden';
+            }
+
+            $clave1 = password_hash($clave1, PASSWORD_DEFAULT);
+
+            $datos = [
+                ['campo_nombre' => 'nombre', 'campo_marcador' => 'NOMBRE', 'campo_valor' => $nombre],
+                ['campo_nombre' => 'apellido', 'campo_marcador' => 'APELLIDO', 'campo_valor' => $apellido],
+                ['campo_nombre' => 'dni', 'campo_marcador' => 'DNI', 'campo_valor' => $dni],
+                ['campo_nombre' => 'correo', 'campo_marcador' => 'CORREO', 'campo_valor' => $correo],
+                ['campo_nombre' => 'n_cel', 'campo_marcador' => 'CEL', 'campo_valor' => $celular],
+                ['campo_nombre' => 'tipo_horario', 'campo_marcador' => 'HORARIO', 'campo_valor' => $tiempo],
+            ];
+
+            $insertar = $this->insertion($tabla, $datos);
+            if($insertar !== false){
+                $tabla = 'usuarios';
+                $datos = [
+                    ['campo_nombre' => 'id_personal', 'campo_marcador' => 'IDP', 'campo_valor' => $insertar],
+                    ['campo_nombre' => 'usuario', 'campo_marcador' => 'USUARIO', 'campo_valor' => $correo],
+                    ['campo_nombre' => 'clave', 'campo_marcador' => 'CLAVE', 'campo_valor' => $clave1],
+                ];
+                $validacion = $this->insertion($tabla, $datos);
+                if($validacion !== false){
+                    header('Location:'.APP_URL);
+                }
+            }
         }
     }

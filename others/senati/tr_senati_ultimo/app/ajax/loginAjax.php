@@ -10,6 +10,15 @@
         if($_POST['modulo-login'] === 'login'){
             echo $instancia->loginUser();
         }
+
+        if($_POST['modulo-login'] === 'registro'){
+            echo $instancia->registerUser();
+        }
+
+        if($_POST['modulo-login'] === 'asistencia'){
+            echo $_POST['id'];
+            // echo $instancia->registerUser();
+        }
     }else{
         session_unset();
         session_destroy();

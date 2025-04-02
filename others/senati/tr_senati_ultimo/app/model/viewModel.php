@@ -6,7 +6,7 @@
         public function getViewModel($view){
             $viewListWhite = ['asistencia'];
             if(in_array($view, $viewListWhite)){
-                if(file_exists('../view/content/'.$view.'-view.php')){
+                if(file_exists('./../app/view/content/'.$view.'-view.php')){
                     return [
                         'view' => './../app/view/content/'.$view.'-view.php',
                         'includeHeaderFooter' => true

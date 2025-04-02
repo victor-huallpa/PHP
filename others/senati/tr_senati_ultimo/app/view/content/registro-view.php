@@ -2,30 +2,31 @@
     <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
         <h2>REGISTRO</h2>
         <p><h3> Llenar los siguientes campos </h3></p>
-        <form action="../logical/registro_logica.php" method="post">
+        <form action="./../app/ajax/loginAjax.php" method="post">
+            <input type="hidden" name="modulo-login" value="registro">
             <label for="nombre">Nombre:</label><br>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre" required><br>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre" ><br>
 
             <label for="apellido">Apellido:</label><br>
-            <input type="text" name="apellido" id="apellido" placeholder="Apellido" required><br>
+            <input type="text" name="apellido" id="apellido" placeholder="Apellido" ><br>
 
             <label for="dni">DNI:</label><br>
-            <input type="text" name="dni" id="dni" placeholder="DNI" minlength="8" maxlength="8" required><br>
+            <input type="text" name="dni" id="dni" placeholder="DNI" minlength="8" maxlength="8" ><br>
 
             <label for="correo">Correo:</label><br>
-            <input type="email" name="correo" id="correo" placeholder="Correo" required><br>
+            <input type="email" name="correo" id="correo" placeholder="Correo" ><br>
 
-            <label for="n_cel">Celular:</label><br>
-            <input type="text" name="n_cel" id="n_cel" placeholder="Celular" minlength="9" maxlength="9" required autocomplete="tel"><br>
+            <label for="cel">Celular:</label><br>
+            <input type="text" name="cel" id="cel" placeholder="Celular" minlength="9" maxlength="9"  autocomplete="tel"><br>
 
             <label for="contrasena">Contraseña:</label><br>
-            <input type="password" name="contrasena" id="contrasena" placeholder="contraseña" autocomplete="new-password" required><br>
+            <input type="password" name="clave" id="contrasena" placeholder="contraseña" autocomplete="new-password" ><br>
 
             <label for="contrasena2">Confirmar contraseña:</label><br>
-            <input type="password" name="contrasena2" id="contrasena2" placeholder="confirmar contraseña" autocomplete="new-password" required><br>
+            <input type="password" name="clave2" id="contrasena2" placeholder="confirmar contraseña" autocomplete="new-password" ><br>
 
             <h4>Tipo de contrato:
-                <select name="tipo_contrato" id="">                
+                <select name="tiempo" id="">                
                     <option value="tiempo completo">tiempo completo</option>
                     <option value="tiempo parcial">tiempo parcial</option>
                 </select>
