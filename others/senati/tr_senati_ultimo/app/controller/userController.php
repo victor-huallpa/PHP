@@ -1,6 +1,6 @@
 <?php
     namespace app\controller;
-    use app\model\mainModel;
+    use app\model\mainModel,PDO;
 
     class userController extends mainModel{
         //METODO LOGIN USURIO
@@ -25,7 +25,6 @@
                     
                     $_SESSION['usuario'] = $validacion['usuario'];
                     $_SESSION['id'] = $validacion['id_personal'];
-
                     header('Location:'.APP_URL.'asistencia');
 
                 }else{
@@ -93,6 +92,54 @@
                 if($validacion !== false){
                     header('Location:'.APP_URL);
                 }
+            }
+        }
+        //METODO PARA MARCAR ASISTENCIA DE USUARIO
+        public function attendaceUser(){
+            date_default_timezone_set(APP_TIMEZONE);
+
+            $table = 'asistencias';
+            $id = $_POST['id'];
+            $fecha = date('Y-m-d');
+            $hora = date('H:i:s');
+            $accion = $_POST['accion'];
+
+            if(empty($id) || empty($accion) || empty($hora)){
+                return 'lo siento no se pudo marcar la asistencia, vuelva a intentarlo';
+                exit;
+            }
+            $data = [
+                'campo_nombre' => 'fecha_marcacion', 'campo_marcador' => 'FECHA', 'campo_valor' => $fecha
+            ];
+            $selecction = $this->selection('one', $table, 'id_personal', $id, true, $data);
+            if ($selecction->rowCount() >= 1) {
+                $registros = $selecction->fetchAll(); // Obtener todos los registros
+                $entrada_registrada = false;
+                $salida_registrada = false;
+                foreach ($registros as $registro) {
+                    if ($registro['accion'] == 'entrada') {
+                        $entrada_registrada = true;
+                    } elseif ($registro['accion'] == 'salida') {
+                        $salida_registrada = true;
+                    }
+                }
+                if ($accion == 'entrada' && $entrada_registrada) {
+                    return 'ya se marco la asistencia entrada';
+                } elseif ($accion == 'salida' && $salida_registrada) {
+                    return 'ya se marco la asistencia salida';
+                }
+            }
+            $fields = [
+                ['campo_nombre' => 'id_personal', 'campo_marcador' => 'IDP', 'campo_valor' => $id],
+                ['campo_nombre' => 'fecha_marcacion', 'campo_marcador' => 'FECHA', 'campo_valor' => $fecha],
+                ['campo_nombre' => 'hora_marcacion', 'campo_marcador' => 'HORA', 'campo_valor' => $hora],
+                ['campo_nombre' => 'accion', 'campo_marcador' => 'ACCION', 'campo_valor' => $accion],
+            ];
+            $insertar = $this->insertion($table, $fields);
+            if($insertar !== false){
+                header('Location:'.APP_URL.'asistencia');
+            }else{
+                echo 'no se pudo marcar la asistencia';
             }
         }
     }

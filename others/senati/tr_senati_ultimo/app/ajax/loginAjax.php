@@ -2,6 +2,7 @@
 	require_once "./../../config/error.php";
 	require_once "./../../config/env.php";
     include_once './../../config/autoload.php';
+    include_once './../../config/session-start.php';
 
     use app\controller\userController;
 
@@ -16,8 +17,7 @@
         }
 
         if($_POST['modulo-login'] === 'asistencia'){
-            echo $_POST['id'];
-            // echo $instancia->registerUser();
+            echo $instancia->attendaceUser();
         }
     }else{
         session_unset();

@@ -48,7 +48,7 @@
             return !preg_match("/^" . preg_quote($expression, '/') . "$/", $string);
         }
         //METODO PARA SELECCIONAR DATOS/REGISTROS
-        public function selection(string $type, string $table, string $field = '', int|string $id = ''):PDOStatement|false{
+        public function selection(string $type, string $table, string $field = '', int|string $id = '',bool $condition = false,array $data = []):PDOStatement|false{
             //reseteamos datos
             $type = $this->clearString($type);
             $table = $this->clearString($table);
@@ -58,13 +58,20 @@
                 $query = "SELECT * FROM $table";
                 return $this->execution($query);
 
-            }elseif($type === "one"){
+            } elseif ($type === "one") {
                 $query = "SELECT * FROM $table WHERE $field = :ID";
-                $params = [
-                    [":ID", $id, is_string($id) ? PDO::PARAM_STR : PDO::PARAM_INT]
-                ];
+                if ($condition) {
+                    $query .= ' AND ' . $data['campo_nombre'] . ' = :' . $data['campo_marcador'];
+                    $params = [
+                        [":ID", $id, is_string($id) ? PDO::PARAM_STR : PDO::PARAM_INT],
+                        [':' . $data['campo_marcador'], $data['campo_valor'], is_string($data['campo_valor']) ? PDO::PARAM_STR : PDO::PARAM_INT], // Corregido aquí
+                    ];
+                } else {
+                    $params = [
+                        [":ID", $id, is_string($id) ? PDO::PARAM_STR : PDO::PARAM_INT]
+                    ];
+                }
                 return $this->execution($query, $params ?? []);
-
             }
             return false;
         }

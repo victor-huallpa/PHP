@@ -6,3 +6,4 @@ estructurando el crud de archivo otros crud-senati-2
 # version 2 para tr_senati_ultimo
 - manejo de vistas 
 - estrucutura de carpetas y demas
+- regsitro de asistencia
