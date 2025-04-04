@@ -7,3 +7,7 @@ estructurando el crud de archivo otros crud-senati-2
 - manejo de vistas 
 - estrucutura de carpetas y demas
 - regsitro de asistencia
+- verificaion de entrada y salida respecto a la fecha y hora actual
+- mensajes para el usuario respecto a la marcacion de asistencia
+- modificacion de controller user
+- diagrama de flujo
