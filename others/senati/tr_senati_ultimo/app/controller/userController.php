@@ -117,8 +117,6 @@
                 $entrada_registrada = false;
                 $salida_registrada = false;
                 foreach ($registros as $registro) {
-                    var_dump($registro);
-                    echo '<br>';
                     if ($registro['accion'] == 'entrada') {
                         $entrada_registrada = true;
                     } elseif ($registro['accion'] == 'salida') {
