@@ -11,3 +11,8 @@ estructurando el crud de archivo otros crud-senati-2
 - mensajes para el usuario respecto a la marcacion de asistencia
 - modificacion de controller user
 - diagrama de flujo
+
+
+# NUEVO PROYECTO DE ASISTENCIA
+- estructura de carpetas MVC
+- archivos de configuracion y demas
