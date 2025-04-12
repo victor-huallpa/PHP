@@ -17,3 +17,4 @@ estructurando el crud de archivo otros crud-senati-2
 - estructura de carpetas MVC
 - archivos de configuracion y demas
 - disenio de vistas
+- nueva funcion
